@@ -1,17 +1,113 @@
-<!DOCTYPE html>
+<?php
+include("./../login/auth.php"); ?>
+<?php
+require("ketnoiDatabase.php");
+$id=(int) $_GET["id"];
+$sql = "SELECT * FROM `company` WHERE `id`='$id'";
+$query = mysqli_query($conn,$sql);
+$row = mysqli_fetch_array($query);
+$img = $row['hinhanh'];
+?>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link ref="stylesheet" href="style.css">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Thông Tin CV </title>
+
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
+
 <body>
-    <div class="content"><h1>Lê Tấn Đạt - 2174802010071</h1>
-        <p>welcome to my website</P>
-    
+    <div class="container-fluid overcover">
+        <div class="container profile-box">
+            <div class="row">
+                <div class="col-md-4 left-co">
+                    <div class="left-side">
+                        <div class="profile-info">
+                            <img src="./../../images/<?= $row["hinhanh"]?>" alt="Hình ảnh" style="width: 150px; height: 150px;">
+                            <h3><?= $row["ten"]?></h3>
+                            
+                        </div>
+                        <h4 class="ltitle">Liên Lạc</h4>
+                        <div class="contact-box pb0">
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="detail">
+                                <?= $row["dienthoai"] ?>
+                            </div>
+                        </div>
+                        <div class="contact-box pb0">
+                            <div class="icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div class="detail">
+                                Loại : <?= $row["email"] ?>
+                            </div>
+                        </div>
+                        <div class="contact-box">
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="detail">
+                                Địa Chỉ : <?= $row["diachi"] ?>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-md-8 rt-div">
+                    <div class="rit-cover">
+                        <div class="hotkey">
+                            <h1 class=""><?= $row["ten"] ?></h1>
+                            <small><?= $row["nganh"] ?></small>
+                        </div>
+                        <h2 class="rit-titl"><i class=""></i> Mô Tả Công Việc</h2>
+                        <div class="about">
+                            <p><?= $row["mota"] ?></p>
+                            
+                        </div>
+
+                        
+                        <h2 class="rit-titl"><i class=""></i> Thời Hạn Làm Việc</h2>
+                        <div class="education">
+                            <p><?= $row["thoihan"] ?> <?= $row["fthoihan"] ?></p>
+                        </div>
+                        <h2 class="rit-titl"><i class=""></i> Loại Công Việc</h2>
+                        <div class="education">
+                            <p><?= $row["loai"] ?></p>
+                        </div>
+                        <h2 class="rit-titl"><i class=""></i> Lương</h2>
+                        <div class="education">
+                            <p><?= $row["luong"] ?></p>
+                        </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
 </body>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+
 </html>
