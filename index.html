@@ -1,13 +1,4 @@
-<?php
-include("./../login/auth.php"); ?>
-<?php
-require("ketnoiDatabase.php");
-$id=(int) $_GET["id"];
-$sql = "SELECT * FROM `company` WHERE `id`='$id'";
-$query = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($query);
-$img = $row['hinhanh'];
-?>
+
 <!doctype html>
 <html lang="en">
 
@@ -30,21 +21,12 @@ $img = $row['hinhanh'];
                     <div class="left-side">
                         <div class="profile-info">
                             
-                            <h3>Lê Tấn Đạt - 2174802010071</h3>
+                            <h3></h3>
                             
                         </div>
                         <h4 class="ltitle">Liên Lạc</h4>
                         <div class="contact-box pb0">
-                            <div class="icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="detail">
-                                <?= $row["dienthoai"] ?>
-                            </div>
-                        </div>
-                        <div class="contact-box pb0">
-                            <div class="icon">
-                                <i class="fas fa-globe-americas"></i>
+                            <p>Lê Tấn Đạt - 2174802010071</p>
                             </div>
                             <div class="detail">
                                 Loại : <?= $row["email"] ?>
